@@ -11,7 +11,7 @@ export const Container = styled.div`
   }
 
   & span {
-    width: 120px;
+    width: 125px;
     visibility: hidden;
     background: #555;
     text-align: center;
