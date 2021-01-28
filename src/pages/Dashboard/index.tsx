@@ -12,24 +12,23 @@ import ICustomer from '../../dtos/ICustomer';
 const Dashboard: React.FC = () => {
   const [customers, setCustomers] = useState<ICustomer[]>([]);
 
-  const [searchInput, setSearchInput] = useState('');
+  const [searchInput, setSearchInput] = useState(null);
   const [searchType, setSearchType] = useState('');
 
   const history = useHistory();
 
   useEffect(() => {
-    if (!searchInput) {
-      return;
+    if (searchInput) {
+      api
+        .get('/customers', {
+          params: {
+            [searchType]: searchInput,
+          },
+        })
+        .then(response => {
+          setCustomers(response.data);
+        });
     }
-    api
-      .get('/customers', {
-        params: {
-          [searchType]: searchInput,
-        },
-      })
-      .then(response => {
-        setCustomers(response.data);
-      });
   }, [searchInput, searchType]);
 
   const handleInputChange = useCallback(input => {
