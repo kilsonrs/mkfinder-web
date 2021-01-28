@@ -56,7 +56,11 @@ const Dashboard: React.FC = () => {
       <Container>
         <Search>
           <MdSearch size={20} color="#bdbcbc" />
-          <input type="text" onKeyPress={handleInputChange} />
+          <input
+            type="text"
+            placeholder="Pesquise por Nome ou Mac"
+            onKeyPress={handleInputChange}
+          />
         </Search>
         <Content>
           {customers && (

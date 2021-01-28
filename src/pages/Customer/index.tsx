@@ -136,6 +136,7 @@ const Customer: React.FC = () => {
                 <h3>{item.nome}</h3>
                 <button
                   type="button"
+                  title={`Abrir no ${state.company.toLocaleUpperCase()}`}
                   onClick={
                     () =>
                       window.open(
@@ -218,7 +219,7 @@ const Customer: React.FC = () => {
             href={`${state.url}/admin/cliente_det.php?uuid=${state.uuid_cliente}`}
             target="_blank"
             rel="noreferrer"
-            title="Ir para cobranças"
+            title={`Abrir no ${state.company.toLocaleUpperCase()}`}
           >
             <MdLaunch cursor="pointer" size={20} color="#c0c0c0" />
           </a>

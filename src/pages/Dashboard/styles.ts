@@ -23,6 +23,13 @@ export const Search = styled.div`
     border: 0;
     font-size: 16px;
     color: #444;
+
+    &::placeholder {
+      color: #9b9a9a;
+    }
+    &:-ms-input-placeholder {
+      color: #9b9a9a;
+    }
   }
 `;
 
