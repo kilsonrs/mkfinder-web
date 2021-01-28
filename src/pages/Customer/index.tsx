@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-curly-newline */
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { MdLaunch } from 'react-icons/md';
@@ -137,12 +138,10 @@ const Customer: React.FC = () => {
                 <button
                   type="button"
                   title={`Abrir no ${state.company.toLocaleUpperCase()}`}
-                  onClick={
-                    () =>
-                      window.open(
-                        `${state.url}/admin/cliente_alt.php?uuid=${state.uuid_cliente}`,
-                      )
-                    // eslint-disable-next-line react/jsx-curly-newline
+                  onClick={() =>
+                    window.open(
+                      `${state.url}/admin/cliente_alt.php?uuid=${state.uuid_cliente}`,
+                    )
                   }
                 >
                   {state.company.toLocaleUpperCase()}
@@ -169,7 +168,21 @@ const Customer: React.FC = () => {
                 </Contact>
                 <Address>
                   <section>
-                    <p>{`${item.endereco}, ${item.numero}`}</p>
+                    <span>
+                      <p>{`${item.endereco}, ${item.numero}`}</p>
+
+                      <MdLaunch
+                        title="Abrir no Google Maps"
+                        onClick={() =>
+                          window.open(
+                            `https://www.google.com/maps/search/?api=1&query=${item.endereco}, ${item.numero} ${item.cidade} ${item.estado}`,
+                          )
+                        }
+                        size={20}
+                        color="#c0c0c0"
+                        cursor="pointer"
+                      />
+                    </span>
                     <p>{item.bairro}</p>
                   </section>
                   <section>

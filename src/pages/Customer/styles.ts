@@ -106,6 +106,16 @@ export const Address = styled.div`
   p:first-child {
     margin-bottom: 4px;
   }
+
+  span {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  svg {
+    margin-left: 6px;
+  }
 `;
 
 export const RightContent = styled.div`
