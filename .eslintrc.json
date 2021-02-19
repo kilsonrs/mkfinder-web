@@ -26,6 +26,7 @@
     ],
     "rules": {
         "no-alert":"off",
+        "no-console": "off",
         "@typescript-eslint/no-explicit-any": "off",
         "import/no-duplicates": "off",
         "react/prop-types": "off",

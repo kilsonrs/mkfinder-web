@@ -18,7 +18,7 @@ const StatusBadge: React.FC<StatusBadgeProps> = ({
   status,
 }: StatusBadgeProps) => {
   return (
-    <Container>
+    <Container className="statusBadge">
       {!status.isActive && (
         <Badge
           info="Cancelado"

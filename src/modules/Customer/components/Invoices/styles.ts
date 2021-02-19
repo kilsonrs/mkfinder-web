@@ -3,9 +3,13 @@ import styled from 'styled-components';
 interface InvoiceProps {
   status: string;
 }
+export const Container = styled.section`
+  grid-area: invoices;
+  /* height: 100vh; */
 
-export const Container = styled.div`
-  padding-right: 24px;
+  /* div {
+    height: 100%;
+  } */
 
   table {
     width: 100%;
