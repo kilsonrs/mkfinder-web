@@ -13,11 +13,11 @@ export interface CustomerProps {
 }
 
 const Customer: React.FC<CustomerProps> = ({ customerDetails }) => {
-  const { invoices, address, contact, profile, connection } = customerDetails;
+  const { invoices, address, contact, person, connection } = customerDetails;
   return (
     <Container>
       <Content>
-        <Person profile={profile} />
+        <Person person={person} />
         <Contact contact={contact} />
         <Connection connection={connection} />
         <Address address={address} />

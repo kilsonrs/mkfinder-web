@@ -13,7 +13,6 @@ export const Content = styled.article`
   max-width: 1024px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  /* grid-template-rows: 1fr 1fr 3fr; */
   grid-template-areas:
     'person person person'
     'contact connection address'

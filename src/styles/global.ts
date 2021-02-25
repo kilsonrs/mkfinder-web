@@ -9,13 +9,11 @@ export default createGlobalStyle`
   }
 
   body {
-    /* background: #F7FAFC; */
-    background: linear-gradient(180deg, #FFFFFF 0%, #F7FAFC 100%);
+    background: linear-gradient(180deg, #FFFFFF 15%, #d6efff 100%);
     height:100%;
     color: #444;
     --webkit-font-smoothing: antialiased;
   }
-
 
   body, input, button {
     font-family: 'Roboto', serif;

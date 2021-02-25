@@ -18,30 +18,29 @@ export const Container = styled.div<ContainerProps>`
   margin: 12px 0;
   background: #fff;
   box-shadow: 0px 1px 1px rgba(0, 41, 255, 0.15);
+  border-radius: 4px;
   position: relative;
-
-  border-radius: 16px;
 
   ${props =>
     props.isFocused &&
     css`
-      border-radius: 4px;
+      box-shadow: 0px 5px 8px rgb(0 0 0 / 15%);
     `}
+`;
+
+export const Input = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 0 8px;
 
   input {
     border: 0;
     width: 100%;
     color: #616161;
+    margin-left: 8px;
   }
-
-  svg {
-    margin-right: 8px;
-  }
-`;
-
-export const Input = styled.div`
-  margin: 4px 16px;
-  display: flex;
 `;
 
 export const List = styled.ul<ListProps>`
@@ -53,11 +52,12 @@ export const List = styled.ul<ListProps>`
   border-radius: 0 0 8px 8px;
   box-shadow: 0px 10px 14px -10px rgba(82, 97, 107, 0.24);
 
-  opacity: 0;
+  display: none;
+
   ${props =>
     props.isListOpen &&
     css`
-      opacity: 1;
+      display: block;
     `}
 `;
 
@@ -69,12 +69,17 @@ export const ListItem = styled.li`
   div {
     border: 0;
     background: transparent;
-    padding: 8px 0;
+    padding: 10px 0;
     margin: 0 16px;
 
     p {
       font-size: 14px;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
+      color: #444;
+    }
+
+    small {
+      color: #999;
     }
 
     span {
@@ -84,6 +89,7 @@ export const ListItem = styled.li`
       small:nth-child(2) {
         margin-left: auto;
         text-transform: uppercase;
+        color: #aaa;
       }
     }
   }

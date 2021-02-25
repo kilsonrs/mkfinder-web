@@ -8,7 +8,7 @@ export const Container = styled.section`
     max-height: 196px;
     display: grid;
     grid-template-columns: 1fr 3fr;
-    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     grid-template-areas:
       'title title'
       'mailKey mailValue'
@@ -17,8 +17,9 @@ export const Container = styled.section`
 
   h1 {
     grid-area: title;
-    color: #bbb;
+    color: #bdbdbd;
     font-size: 12px;
+    margin-bottom: 24px;
   }
 
   li,
@@ -28,29 +29,33 @@ export const Container = styled.section`
 
   li {
     list-style: none;
-    margin-bottom: 8px;
+    margin-bottom: 2px;
   }
 
   #mail-key {
     grid-area: mailKey;
     justify-self: right;
-    align-self: center;
     margin-right: 8px;
+    color: #bdbdbd;
   }
 
   #fone-key {
     grid-area: foneKey;
     justify-self: right;
     margin-right: 8px;
+    color: #bdbdbd;
   }
 
   #mail-value {
     grid-area: mailValue;
-    align-self: center;
-    font-size: 16px;
+    align-self: flex-start;
+    font-size: 14px;
+    color: #9e9e9e;
+    margin-bottom: 8px;
   }
 
   #fone-value {
     grid-area: foneValue;
+    color: #9e9e9e;
   }
 `;

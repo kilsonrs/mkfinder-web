@@ -2,10 +2,10 @@ import IAddress from './IAddress';
 import IConnection from './IConnection';
 import IContact from './IContact';
 import IInvoice from './IInvoice';
-import IProfile from './IProfile';
+import IPerson from './IPerson';
 
 export default interface ICustomerDetails {
-  profile: IProfile;
+  person: IPerson;
   contact: IContact;
   connection: IConnection;
   address: IAddress;

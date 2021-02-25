@@ -3,84 +3,55 @@ import styled from 'styled-components';
 interface InvoiceProps {
   status: string;
 }
+
 export const Container = styled.section`
   grid-area: invoices;
-  /* height: 100vh; */
-
-  /* div {
-    height: 100%;
-  } */
-
-  table {
-    width: 100%;
-    table-layout: fixed;
-    border-collapse: collapse;
-
-    th {
-      padding: 16px 0;
-      font-size: 16px;
-      text-align: center;
-      font-weight: 500;
-    }
-
-    th.titulo {
-      width: 8%;
-    }
-    th.vencimento {
-      width: 20%;
-    }
-    th.valor {
-      width: 8%;
-    }
-    th.processamento {
-      width: 20%;
-    }
-    th.status {
-      width: 10%;
-    }
-
-    tr {
-      border-bottom: 1px solid #ddd;
-      cursor: pointer;
-    }
-
-    td {
-      padding: 8px 0;
-      font-size: 12px;
-      text-align: center;
-    }
-  }
+  background: #f6f6f6;
 `;
 
-export const Row = styled.tr<InvoiceProps>`
-  background-color: ${props => {
-    if (props.status === 'vencido') {
-      return '#FFEBEE';
-    }
-    if (props.status === 'aberto') {
-      return '#fff';
-    }
-    if (props.status === 'pago') {
-      return '#E0F2F1';
-    }
-    return '#FFF';
-  }};
+export const InvoiceItem = styled.article<InvoiceProps>`
+  #invoice-row-content,
+  section {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 8px;
+    border-bottom: 1px solid #fff;
 
-  &:hover {
+    p {
+      margin: 8px 0;
+    }
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      border: 0;
+      background: transparent;
+      width: 64px;
+      padding: 8px 8px 8px 0;
+
+      #status {
+        margin-right: 16px;
+      }
+      #action {
+        margin-right: 0;
+      }
+    }
+
     background-color: ${props => {
       if (props.status === 'vencido') {
-        return '#FFCDD2';
+        return '#fffcfc';
       }
       if (props.status === 'aberto') {
-        return '#eee';
+        return '#fff';
       }
       if (props.status === 'pago') {
-        return '#B2DFDB';
+        return '#f8fcfc';
       }
-      return '#f7f7f7';
+      return '#FFF';
     }};
-  }
-  td {
+
     color: ${props => {
       if (props.status === 'vencido') {
         return '#F44336';
@@ -92,6 +63,21 @@ export const Row = styled.tr<InvoiceProps>`
         return '#009688';
       }
       return '#9E9E9E';
+    }};
+  }
+
+  #invoice-row-content:hover {
+    background-color: ${props => {
+      if (props.status === 'vencido') {
+        return '#ffebee';
+      }
+      if (props.status === 'aberto') {
+        return '#eee';
+      }
+      if (props.status === 'pago') {
+        return '#e0f2f1';
+      }
+      return '#f7f7f7';
     }};
   }
 `;

@@ -17,4 +17,5 @@ export default interface IInvoice {
   valorpag: string;
   recibo: string;
   deltitulo: string;
+  active: boolean;
 }

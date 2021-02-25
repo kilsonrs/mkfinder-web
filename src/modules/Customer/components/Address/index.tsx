@@ -10,30 +10,32 @@ interface AddressProps {
 }
 
 const Address: React.FC<AddressProps> = ({ address }) => {
-  const { endereco, numero, bairro, cidade, estado } = address;
+  const { endereco, numero, bairro, cidade, estado, cep } = address;
   return (
     <Container>
       <Card>
-        <section id="map">
-          <iframe
-            title="mapa"
-            width="332"
-            height="136"
-            frameBorder="0"
-            scrolling="no"
-            marginHeight={0}
-            marginWidth={0}
-            src="https://www.openstreetmap.org/export/embed.html?bbox=-48.32297801971436%2C-21.25709651763103%2C-48.318922519683845%2C-21.253156907039145&amp;layer=mapnik"
-            style={{ border: 0 }}
-          />
-        </section>
-        <section id="address">
+        <h1>ENDEREÇOS:</h1>
+        <section id="street">
           <div>
             <p>{`${endereco}, ${numero}`}</p>
-            <small>{`${bairro}, ${cidade} - ${estado}`}</small>
+            <small>{`${bairro}`}</small>
+          </div>
+        </section>
+        <section id="city">
+          <div>
+            <p>{`${cidade}, ${estado}`}</p>
+            <small>{`${cep}`}</small>
           </div>
           <button type="button">
-            <MdLaunch size={24} color="#eee" />
+            <MdLaunch
+              size={24}
+              color="#e0e0e0"
+              onClick={() =>
+                window.open(
+                  `https://www.google.com/maps/search/?api=1&query=${endereco}, ${numero} ${cidade} ${estado}`,
+                )
+              }
+            />
           </button>
         </section>
       </Card>

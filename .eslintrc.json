@@ -25,6 +25,7 @@
         "prettier"
     ],
     "rules": {
+        "react/jsx-curly-newline": "off",
         "no-alert":"off",
         "no-console": "off",
         "@typescript-eslint/no-explicit-any": "off",

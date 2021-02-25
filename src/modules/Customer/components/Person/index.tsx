@@ -1,28 +1,36 @@
 import React from 'react';
 import { MdLaunch } from 'react-icons/md';
+import CopyToClipboard from '../../../../components/CopyToClipboard';
 import StatusBadge from '../../../../components/StatusBadge';
-import IProfile from '../../../../dtos/IProfile';
+import IPerson from '../../../../dtos/IPerson';
 
 import { Container } from './styles';
 
 interface PersonProps {
-  profile: IProfile;
+  person: IPerson;
 }
 
-const Person: React.FC<PersonProps> = ({ profile }) => {
-  const { status, nome, company, cpf_cnpj } = profile;
+const Person: React.FC<PersonProps> = ({ person }) => {
+  const { status, nome, company, cpf_cnpj, url, uuid_cliente } = person;
   return (
     <Container>
       <section id="customer">
         <h1>{nome}</h1>
-        <span>
-          <p>{company}</p>
+        <button
+          type="button"
+          onClick={() =>
+            window.open(`${url}/admin/cliente_alt.php?uuid=${uuid_cliente}`)
+          }
+        >
+          <p>{`sistema - ${company}`}</p>
           <MdLaunch size={16} color="#48BB78" />
-        </span>
+        </button>
       </section>
       <span id="cpf">
         <p>CPF:</p>
-        <strong>{cpf_cnpj}</strong>
+        <CopyToClipboard>
+          <strong>{cpf_cnpj}</strong>
+        </CopyToClipboard>
       </span>
       <StatusBadge status={status} />
     </Container>

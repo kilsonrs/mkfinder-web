@@ -1,4 +1,4 @@
-export default interface IProfile {
+export default interface IPerson {
   company: string;
   id: string;
   nome: string;

@@ -6,26 +6,43 @@ export const Container = styled.section`
   div.card {
     height: 100%;
     max-height: 196px;
-    padding: 0;
-  }
-  #map {
-    height: 133px;
-    background: #4299e1;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
-  #address {
-    margin: 12px 16px;
+  h1 {
+    font-size: 12px;
+    color: #bdbdbd;
+  }
+
+  section {
     display: flex;
     align-items: center;
+  }
 
-    div {
-      p {
-        font-size: 16px;
-      }
+  #street {
+    p {
+      font-size: 16px;
+      color: #757575;
+    }
 
-      small {
-        font-size: 12px;
-      }
+    small {
+      font-size: 12px;
+      color: #bdbdbd;
+    }
+  }
+
+  #city {
+    p {
+      font-size: 14px;
+      color: #9e9e9e;
+    }
+
+    small {
+      font-size: 12px;
+      color: #bdbdbd;
     }
 
     button {

@@ -18,13 +18,15 @@ const Search: React.FC<SearchProps> = ({ handleCustomerSelect }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
   const [isListOpen, setIsListOpen] = useState(false);
-  const [customers, setCustomers] = useState<Customer[]>();
+  const [customers, setCustomers] = useState<Customer[] | null>();
 
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleInputBlur = useCallback(() => {
-    setIsFocused(false);
-    setIsListOpen(false);
+    setTimeout(() => {
+      setIsListOpen(false);
+      setIsFocused(false);
+    }, 100);
   }, []);
 
   const handleInputFocus = useCallback(() => {
@@ -54,6 +56,7 @@ const Search: React.FC<SearchProps> = ({ handleCustomerSelect }) => {
           type="text"
           name="search-input"
           id="search-input"
+          placeholder="Procurar cliente"
           onFocus={handleInputFocus}
           onBlur={handleInputBlur}
           onChange={handleInputChange}
