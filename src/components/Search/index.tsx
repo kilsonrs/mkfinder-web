@@ -35,6 +35,9 @@ const Search: React.FC<SearchProps> = ({ handleCustomerSelect }) => {
   }, [isFilled]);
 
   const handleInputChange = useCallback(() => {
+    if (inputRef.current?.value === '') {
+      return;
+    }
     api
       .get('/customers', {
         params: {
