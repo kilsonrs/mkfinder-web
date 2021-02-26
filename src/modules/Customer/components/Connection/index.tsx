@@ -24,8 +24,9 @@ const Connection: React.FC<ConnectionProps> = ({ connection }) => {
         <p id="wpa-key">WPA Key:</p>
 
         {/* values */}
-
-        <p id="login-value">{login}</p>
+        <CopyToClipboard>
+          <p id="login-value">{login}</p>
+        </CopyToClipboard>
         <p id="password-value">{senha}</p>
         <CopyToClipboard>
           <p id="mac-value">{mac}</p>

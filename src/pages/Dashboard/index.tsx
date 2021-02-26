@@ -41,6 +41,7 @@ const Dashboard: React.FC = () => {
       <Header>
         <Search handleCustomerSelect={handleCustomerSelect} />
       </Header>
+
       {customer ? (
         <Customer customerDetails={customer} />
       ) : (
@@ -51,7 +52,9 @@ const Dashboard: React.FC = () => {
             width={300}
             height={300}
           />
+
           <p>Começe fazendo uma pesquisa</p>
+
           <cite>
             Lottie made by
             <a
