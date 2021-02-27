@@ -14,7 +14,7 @@ const Address: React.FC<AddressProps> = ({ address }) => {
   return (
     <Container>
       <Card>
-        <h1>ENDEREÇOS:</h1>
+        <h1>ENDEREÇO:</h1>
         <section id="street">
           <div>
             <p>{`${endereco}, ${numero}`}</p>
