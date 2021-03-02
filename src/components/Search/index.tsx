@@ -1,4 +1,5 @@
 import React, { useState, useRef, useCallback } from 'react';
+import Loading from 'react-loading';
 import { MdSearch } from 'react-icons/md';
 import api from '../../services/api';
 import { Container, Input, List, ListItem } from './styles';
@@ -15,6 +16,7 @@ interface SearchProps {
 }
 
 const Search: React.FC<SearchProps> = ({ handleCustomerSelect }) => {
+  const [isLoading, setIsLoading] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
   const [isListOpen, setIsListOpen] = useState(false);
@@ -34,17 +36,20 @@ const Search: React.FC<SearchProps> = ({ handleCustomerSelect }) => {
     setIsFocused(true);
   }, [isFilled]);
 
-  const handleInputChange = useCallback(() => {
+  const handleInputChange = useCallback(async () => {
     if (inputRef.current?.value === '') {
       return;
     }
-    api
+    setIsLoading(true);
+    await api
       .get('/customers', {
         params: {
           nome: inputRef.current?.value,
         },
       })
       .then(response => setCustomers(response.data));
+
+    setIsLoading(false);
     setIsListOpen(true);
 
     setIsFilled(!!inputRef.current?.value);
@@ -53,7 +58,12 @@ const Search: React.FC<SearchProps> = ({ handleCustomerSelect }) => {
   return (
     <Container isFocused={isFocused} isListOpen={isListOpen}>
       <Input>
-        <MdSearch size={24} color="#4299E1" />
+        {isLoading ? (
+          <Loading color="#4299e1" height={22} width={22} type="spin" />
+        ) : (
+          <MdSearch color="#4299E1" size={24} />
+        )}
+
         <input
           ref={inputRef}
           type="text"

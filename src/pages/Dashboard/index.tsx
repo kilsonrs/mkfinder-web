@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import Lottie from 'react-lottie';
+import Loading from 'react-loading';
 
 import api from '../../services/api';
 
@@ -15,25 +16,27 @@ import { Container, LottieAnimation } from './styles';
 
 const Dashboard: React.FC = () => {
   const [customer, setCustomer] = useState<ICustomerDetails>();
+  const [isLoading, setIsLoading] = useState(false);
 
   const lottieOptions = {
     loop: true,
-    autoplay: true,
     animationData,
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice',
     },
   };
 
-  const handleCustomerSelect = useCallback(_customer => {
+  const handleCustomerSelect = useCallback(async _customer => {
     const { login, company } = _customer;
-    api
+    setIsLoading(true);
+    await api
       .get(`/customer-details/${login}`, {
         params: {
           company,
         },
       })
       .then(response => setCustomer(response.data));
+    setIsLoading(false);
   }, []);
 
   return (
@@ -46,14 +49,28 @@ const Dashboard: React.FC = () => {
         <Customer customerDetails={customer} />
       ) : (
         <LottieAnimation>
-          <Lottie
-            options={lottieOptions}
-            style={{ background: 'transparent' }}
-            width={300}
-            height={300}
-          />
+          {isLoading ? (
+            <>
+              <Loading
+                type="bubbles"
+                color="#a9ceec"
+                width={200}
+                height={300}
+              />
 
-          <p>Começe fazendo uma pesquisa</p>
+              <p>Buscando dados...</p>
+            </>
+          ) : (
+            <>
+              <Lottie
+                options={lottieOptions}
+                style={{ background: 'transparent' }}
+                width={300}
+                height={300}
+              />
+              <p>Começe fazendo uma pesquisa</p>
+            </>
+          )}
 
           <cite>
             Lottie made by
