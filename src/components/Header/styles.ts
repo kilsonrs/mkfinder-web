@@ -10,7 +10,7 @@ export const Container = styled.header`
   position: relative;
   z-index: 1;
 
-  #home {
+  #logo {
     border: 0;
     background: transparent;
 

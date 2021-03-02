@@ -8,10 +8,10 @@ const Header: React.FC = ({ children }) => {
   const history = useHistory();
   return (
     <Container>
-      <button id="home" type="button" onClick={() => window.location.reload()}>
+      <span id="logo">
         <MdSearch size={24} color="#fff" />
         <h1>MK-Finder</h1>
-      </button>
+      </span>
       {children}
       <button id="logout" type="button" onClick={() => history.push('/')}>
         <MdPowerSettingsNew size={24} color="#fff" />
