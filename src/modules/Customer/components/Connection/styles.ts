@@ -5,12 +5,13 @@ export const Container = styled.section`
 
   div.card {
     height: 100%;
-    max-height: 196px;
+    max-height: 222px;
     display: grid;
     grid-template-columns: 1fr 3fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 0fr 0fr;
     grid-template-areas:
       'title title'
+      'nasKey nasValue'
       'loginKey loginValue'
       'passwordKey passwordValue'
       'macKey macValue'
@@ -44,6 +45,14 @@ export const Container = styled.section`
     color: #bdbdbd;
   }
 
+  #nas-key {
+    grid-area: nasKey;
+    justify-self: right;
+    align-self: center;
+    margin-right: 8px;
+    color: #bdbdbd;
+  }
+
   #mac-key {
     grid-area: macKey;
     justify-self: right;
@@ -56,6 +65,7 @@ export const Container = styled.section`
     grid-area: wpaKey;
     justify-self: right;
     align-self: flex-start;
+    margin-top: 6px;
     margin-right: 8px;
     color: #bdbdbd;
   }
@@ -75,12 +85,19 @@ export const Container = styled.section`
     color: #bdbdbd;
   }
 
+  #nas-value {
+    grid-area: nasValue;
+    justify-self: left;
+    align-self: center;
+    color: #bdbdbd;
+  }
+
   #mac-value {
     grid-area: macValue;
     justify-self: left;
     align-self: center;
     font-size: 16px;
-    color: #9e9e9e;
+    color: #757575;
     cursor: pointer;
   }
 
@@ -88,6 +105,7 @@ export const Container = styled.section`
     grid-area: wpaValue;
     justify-self: left;
     align-self: flex-start;
+    margin-top: 6px;
     color: #bdbdbd;
   }
 `;
