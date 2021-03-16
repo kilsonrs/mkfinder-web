@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.article`
+export const Container = styled.div`
   display: flex;
   width: fit-content;
   position: relative;
@@ -46,3 +46,5 @@ export const Container = styled.article`
     opacity: 1;
   }
 `;
+
+export const Content = styled.article``;

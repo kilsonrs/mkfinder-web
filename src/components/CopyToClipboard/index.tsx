@@ -1,6 +1,6 @@
 import React, { useCallback, useState, AllHTMLAttributes } from 'react';
 
-import { Container } from './styles';
+import { Container, Content } from './styles';
 
 interface TooltipProps extends AllHTMLAttributes<HTMLDivElement> {
   title?: string;
@@ -24,7 +24,9 @@ const CopyToClipboard: React.FC<TooltipProps> = ({ children, title }) => {
       <span id="tooltip">
         <p id="tooltip-text">{tooltipText}</p>
       </span>
-      {children}
+      <Content>
+        {children}
+      </Content>
     </Container>
   );
 };
