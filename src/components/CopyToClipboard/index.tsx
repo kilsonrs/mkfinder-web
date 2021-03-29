@@ -24,9 +24,7 @@ const CopyToClipboard: React.FC<TooltipProps> = ({ children, title }) => {
       <span id="tooltip">
         <p id="tooltip-text">{tooltipText}</p>
       </span>
-      <Content>
-        {children}
-      </Content>
+      <Content>{children}</Content>
     </Container>
   );
 };

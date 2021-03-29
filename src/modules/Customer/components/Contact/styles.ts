@@ -5,7 +5,7 @@ export const Container = styled.section`
 
   div.card {
     height: 100%;
-    max-height: 220px;
+    max-height: 222px;
     display: grid;
     grid-template-columns: 1fr 3fr;
     grid-template-rows: 1fr 1fr 1fr;

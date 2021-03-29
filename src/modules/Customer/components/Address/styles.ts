@@ -5,7 +5,7 @@ export const Container = styled.section`
 
   div.card {
     height: 100%;
-    max-height: 220px;
+    max-height: 222px;
     padding: 16px;
     display: flex;
     flex-direction: column;
